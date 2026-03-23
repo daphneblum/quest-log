@@ -119,14 +119,52 @@ document.addEventListener('DOMContentLoaded', () => {
     loadTasks();
 });
 
+function spawnParticle() {
+  const particle = document.createElement('div');
+  particle.classList.add('dust-particle');
+
+  // randomize position, size, and duration for variety
+  const x = Math.random() * 100;       // % across the screen
+  const size = Math.random() * 20 + 10;  // 40px to 120px instead of 2-6px  
+  const duration = Math.random() * 10 + 8; // 8s to 18s
+  const delay = Math.random() * 5;      // slight extra delay
+
+  particle.style.cssText = `
+    left: ${x}vw;
+    width: ${size}px;
+    height: ${size}px;
+    animation-duration: ${duration}s;
+    animation-delay: ${delay}s;
+  `;
+
+  document.body.appendChild(particle);
+
+  // remove from DOM after animation ends to keep things clean
+  particle.addEventListener('animationend', () => {
+    particle.remove();
+    spawnParticle(); // respawn so there are always particles on screen
+  });
+}
+
+function createParticles() {
+  const numParticles = 15;
+
+  for (let i = 0; i < numParticles; i++) {
+    setTimeout(() => {
+      spawnParticle();
+    }, i * 300);
+  }
+}
+createParticles();
+
 const Confetti = () => {
     var defaults = {
-  spread: 360,
-  ticks: 50,
-  gravity: 0,
-  decay: 0.94,
-  startVelocity: 30,
-  colors: ['#FFE400', '#FFBD00', '#E89400', '#FFCA6C', '#FDFFB8']
+    spread: 360,
+    ticks: 50,
+    gravity: 0,
+    decay: 0.94,
+    startVelocity: 30,
+    colors: ['#FFE400', '#FFBD00', '#E89400', '#FFCA6C', '#FDFFB8']
 };
 
 function shoot() {
