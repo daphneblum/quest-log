@@ -35,6 +35,12 @@ Tasks:
 -Import pixel-art fonts and a "parchment/scroll" background. ✅
 
 -The Burning Effect: Replace the strike-through with a custom CSS animation where text glows red and dissolves.
+   checkbox checked
+  → save deletion to localStorage
+  → hide edit/delete buttons
+  → split text into character spans
+  → for each span, apply burn animation with increasing delay
+  → when last span finishes → remove li from DOM
 
 -Integrate a custom "Quill" cursor that interacts with the UI.
 
