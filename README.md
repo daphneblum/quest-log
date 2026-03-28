@@ -18,6 +18,8 @@ Dynamic List Rendering — Tasks are managed and displayed using JavaScript arra
 Particle Effects — Ambient environmental particles add atmosphere to the scene
 Retro Fantasy UI — Pixel-art fonts, parchment/scroll background, and a forest environment backdrop
 The Burning Effect — A custom CSS animation where completed quest text glows red and dissolves character by character, replacing the standard delete
+![burn effect when items are clicked](images/burn-effect.png)
+
 
 🔄 Planned (Stage 2 — The Alchemist's Workshop)
 
